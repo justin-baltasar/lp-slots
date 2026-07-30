@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LP — Streamer de Slots</title>
+  <meta name="description"
+    content="Página oficial de LP. Streams de slots en vivo, colaboraciones con casinos y códigos exclusivos de bonos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- decorative grain / vignette overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">LP<span>SLOTS</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#sobre-mi" data-nav>Sobre mí</a>
+        <a href="#colaboraciones" data-nav>Colaboraciones</a>
+        <a href="#jugar" data-nav>Jugar ahora</a>
+        <a href="#contacto" data-nav>Contacto</a>
+      </nav>
+
+      <a href="https://kick.com/picassoslots" class="nav-cta">
+        En vivo <span class="dot" aria-hidden="true"></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Slots Streamer · Twitch · Kick</p>
+      <h1 class="hero-title">
+        <span class="dor">AZAR</span><br><span>PURO</span>
+      </h1>
+      <p class="hero-tagline">Dicen que la casa siempre gana, pero yo nunca pierdo. Las apuestas me cambiaron la vida.
+        Te invito a ver como vivo al limite.
+      </p>
+      <div class="hero-actions">
+        <a href="#jugar" class="btn btn-gold">PROBAR MI DEMO<span aria-hidden="true">↗</span></a>
+        <a href="#colaboraciones" class="btn btn-ghost">Colaborar conmigo</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <video autoplay muted loop playsinline poster="img/lp.png">
+        <source src="img/lp-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-photo-glow" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- reel ticker divider -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+    </div>
+  </div>
+
+  <!-- ============ SOBRE MÍ ============ -->
+  <section class="section" id="sobre-mi">
+    <div class="section-inner about-grid">
+
+      <div class="about-photo-frame reveal">
+        <img src="img/pica.png" alt="pica">
+      </div>
+
+      <div class="about-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Sobre mí</p>
+        <h2 class="section-title">Un spin<br>Un show.</h2>
+        <p class="lede">No tenia nada que perder y comence a apostar. En un fin de semana pase de 10 a 1000 USD, con
+          ese dinero inverti en una PC y el resto es historia. Hoy transmito para cientos de personas, dedico mis
+          noches a probar slots nuevas, cazar bonus y compartir cada ganancia con la comunidad.</p>
+        <p class="body-text">Sin guion y sin editar: lo que se ve en directo es exactamente lo que pasa en la
+          cuenta. Ganancias, pérdidas y algún que otro grito cuando cae el multiplicador.</p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num">10K+</span>
+            <span class="stat-label">Comunidad</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Meses en vivo</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">1.000+</span>
+            <span class="stat-label">Slots probadas</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ticker ticker-reverse" aria-hidden="true">
+    <div class="ticker-track">
+      <span>WIN</span><span>♦</span><span>7</span><span>🍒</span><span>BAR</span><span>♠</span><span>🍀</span><span>7</span>
+      <span>WIN</span><span>♦</span><span>7</span><span>🍒</span><span>BAR</span><span>♠</span><span>🍀</span><span>7</span>
+      <span>WIN</span><span>♦</span><span>7</span><span>🍒</span><span>BAR</span><span>♠</span><span>🍀</span><span>7</span>
+      <span>WIN</span><span>♦</span><span>7</span><span>🍒</span><span>BAR</span><span>♠</span><span>🍀</span><span>7</span>
+    </div>
+  </div>
+
+  <!-- ============ COLABORACIONES ============ -->
+  <section class="section section-alt" id="colaboraciones">
+    <div class="section-inner">
+      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>colaboraciones</p>
+      <h2 class="section-title">Ultimos sponsors<br> <span class="dor">casinos online</span> </h2>
+      <p class="lede lede-narrow">Trabajo con casas de apuestas y proveedores de slots para traerte códigos, torneos y
+        bonos exclusivos que no vas a encontrar en otro lado. Te invito a jugarlos:</p>
+
+      <div class="brand-grid reveal">
+        <a class="brand-card" href="https://1xcasino-ar.com/es" target="_blank" rel="noopener">
+          <img src="img/1x.png" alt="1x">
+          <span>1X CASINO · CODE:PICASSO</span>
+        </a>
+        <a class="brand-card" href="https://dartwinner-3214.pro/es" target="_blank" rel="noopener">
+          <img src="img/dw.png" alt="dartwinner">
+          <span>DARTWINNER · CODE:7SLOTS</span>
+        </a>
+        <a class="brand-card" href="https://roobet.com/es" target="_blank" rel="noopener">
+          <img src="img/ro.png" alt="roobet">
+          <span>ROOBET · CODE:S/N </span>
+        </a>
+      </div>
+
+      <blockquote class="quote reveal">
+        <p>Llevá tu marca al siguiente nivel conectando directamente con mi comunidad. Ofrezco espacios de patrocinio,
+          integración
+          en transmisiones diarias y promociones personalizadas con un alto impacto visual. Ponete en contacto y
+          empecemos a
+          colaborar hoy mismo.</p>
+      </blockquote>
+
+      <div class="cta-inline reveal">
+        <p>¿Tenés una marca y querés una colaboración?</p>
+        <div class="cta-buttons">
+          <a href="doc/lp.docx" target="_blank" rel="noopener" class="btn btn-ghost">
+            Ver referencia <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#contacto" class="btn btn-red">Propongamos algo <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+      <span>7</span><span>🍒</span><span>BAR</span><span>♦</span><span>7</span><span>🍀</span><span>BAR</span><span>♠</span>
+    </div>
+  </div>
+
+  <!-- ============ JUGAR AHORA ============ -->
+  <section class="section" id="jugar">
+    <div class="section-inner">
+      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Jugar ahora</p>
+      <h2 class="section-title">MODO LIBRE</h2>
+      <p class="lede lede-narrow">Explorá las dinámicas, probá combinaciones y disfrutá de la experiencia sin presiones.
+        Todo el contenido es simulación
+        para aprender y divertirse. Tocá para entrar.</p>
+
+      <!--
+      REEMPLAZAR: cada .game-card tiene una imagen de fondo vía style="--thumb:url(...)".
+      Cambiá la URL por la imagen del juego y el link href por tu enlace de afiliado.
+    -->
+      <div class="game-grid">
+
+        <a class="game-card reveal" href="ruleta-creditos.html">
+          <div class="game-thumb game-thumb--a" style="background-image:url('img/rul.png');">
+            <span class="game-provider">LP SLOTS</span>
+          </div>
+          <div class="game-info">
+            <h3>Ruleta Europea</h3>
+            <span class="game-play">Jugar <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+
+        <a class="game-card reveal" href="blackjack.html">
+          <div class="game-thumb game-thumb--b" style="background-image: url('img/bj.png');">
+            <span class="game-provider">LP SLOTS</span>
+          </div>
+          <div class="game-info">
+            <h3>Black Jack</h3>
+            <span class="game-play">Jugar <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+
+        <a class="game-card reveal" href="machine.html">
+          <div class="game-thumb game-thumb--c" style="background-image: url('img/tr.png');">
+            <span class="game-provider">LP SLOTS</span>
+          </div>
+          <div class="game-info">
+            <h3>Tragamonedas Clasico</h3>
+            <span class="game-play">Jugar <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="section section-alt" id="contacto">
+    <div class="section-inner contact-grid">
+
+      <div class="contact-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Contacto</p>
+        <h2 class="section-title">Hablemos.</h2>
+        <p class="lede">Para colaboraciones, sponsors o simplemente para saludar, escribime por acá o mandame un mensaje
+          directo. En mi comunidad de Discord comparto mis promociones.</p>
+
+        <a class="contact-email" href="mailto:luispicasso955@gmail.com">luispicasso955@gmail.com</a>
+
+        <ul class="social-list">
+          <li><a href="https://www.twitch.tv/correntinoslots" aria-label="Twitch"><svg viewBox="0 0 24 24">
+                <path
+                  d="M4 2 2 6.5V20h6v2h3.5l2-2H18l4-4V2H4Zm2 2h14v10.5l-2.5 2.5H14l-2 2v-2H8V4Zm4 3v6h2V7h-2Zm5 0v6h2V7h-2Z" />
+              </svg><span>Twitch</span></a></li>
+
+          <li><a href="https://kick.com/picassoslots" aria-label="Kick"><svg viewBox="0 0 24 24">
+                <path d="M3 3h4v6.5L11 3h5l-6 7 6.5 8h-5L7 12v6H3V3Z" />
+              </svg><span>Kick</span></a></li>
+
+          <li><a href="https://www.instagram.com/_luis.picasso/" aria-label="Instagram"><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.42.06 4.11 0 2.7-.01 3.06-.06 4.12-.05 1.06-.22 1.79-.47 2.43-.26.66-.61 1.22-1.16 1.77-.55.55-1.11.9-1.77 1.16-.64.25-1.37.42-2.43.47-1.06.05-1.42.06-4.12.06-2.69 0-3.06-.01-4.12-.06-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.7 2 12c0-2.69.01-3.06.06-4.12.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.3 2 12 2Zm0 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-2.7a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z" />
+              </svg><span>Instagram</span></a></li>
+
+          <li><a href="https://t.me/luispicasso19" aria-label="Telegram"><svg viewBox="0 0 24 24">
+                <path d="M3 11 21 3l-3.5 18-5-5.5L9 18l-1-6-5-1Z" />
+              </svg><span>Telegram</span></a></li>
+
+          <li><a href="https://discord.com/invite/tVZgpkadK" aria-label="Discord"><svg viewBox="0 0 24 24">
+                <path
+                  d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.618-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.028C.533 9.046-.319 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.2 14.2 0 0 0 1.226-1.994.076.076 0 0 0-.042-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.01c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.548-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.955-2.418 2.157-2.418 1.21 0 2.175 1.095 2.156 2.419 0 1.333-.955 2.419-2.156 2.419Zm7.975 0c-1.183 0-2.157-1.086-2.157-2.42 0-1.332.955-2.418 2.157-2.418 1.21 0 2.175 1.095 2.156 2.419 0 1.333-.946 2.419-2.156 2.419Z" />
+              </svg><span>Discord</span></a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <label>
+          <span>Nombre</span>
+          <input type="text" name="nombre" required autocomplete="name">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>
+          <span>Mensaje</span>
+          <textarea name="mensaje" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-gold btn-full">Enviar mensaje <span aria-hidden="true">↗</span></button>
+        <p class="form-note">Se abre tu cliente de correo con el mensaje listo para enviar.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> LP slots · Desarrollado por JBC · Derechos reservados.</p>
+      <ul class="footer-social">
+        <li><a href="https://www.twitch.tv/correntinoslots">Twitch</a></li>
+        <li><a href="https://kick.com/picassoslots">Kick</a></li>
+        <li><a href="https://www.instagram.com/_luis.picasso/">Instagram</a></li>
+        <li><a href="https://t.me/luispicasso19">Telegram</a></li>
+        <li><a href="https://discord.com/invite/tVZgpkadK">Discord</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

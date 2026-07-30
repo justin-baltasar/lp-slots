@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tragamonedas Jackpot Real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Oswald:wght@500;600;700&family=Orbitron:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cabinet-red-dark: #3a0206;
+      --cabinet-red: #7c0f17;
+      --cabinet-red-light: #a81b24;
+      --gold: #d9b354;
+      --gold-light: #f6e6ae;
+      --gold-dark: #8a6a1f;
+      --chrome-light: #eef1f3;
+      --chrome-mid: #a7adb5;
+      --chrome-dark: #4c5157;
+      --bg-void: #0b0203;
+      --lcd-red: #ff3b30;
+      --lcd-bg: #150404;
+      --win-gold: #ffd76a;
+      --panel-black: #111214;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      background:
+        radial-gradient(ellipse at 50% 30%, #2c0507 0%, var(--bg-void) 55%, #000 100%);
+      font-family: 'Oswald', sans-serif;
+      color: var(--chrome-light);
+    }
+
+    .stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      max-width: 460px;
+    }
+
+    /* ============ CABINET ============ */
+    .machine {
+      position: relative;
+      width: 100%;
+      padding: 22px 26px 28px;
+      background:
+        linear-gradient(180deg, var(--cabinet-red-light) 0%, var(--cabinet-red) 45%, var(--cabinet-red-dark) 100%);
+      border-radius: 26px;
+      border: 3px solid var(--gold-dark);
+      box-shadow:
+        0 0 0 1px rgba(217, 179, 84, 0.35) inset,
+        0 30px 60px -20px rgba(0, 0, 0, 0.85),
+        0 0 70px -15px rgba(168, 27, 36, 0.55);
+    }
+
+    .machine::before,
+    .machine::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      top: 14px;
+      background:
+        radial-gradient(circle at 35% 30%, var(--chrome-light), var(--chrome-mid) 55%, var(--chrome-dark) 100%);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    }
+
+    .machine::before {
+      left: 14px;
+    }
+
+    .machine::after {
+      right: 14px;
+    }
+
+    .topper {
+      position: relative;
+      margin: 0 auto 16px;
+      width: 88%;
+      padding: 14px 10px 18px;
+      border-radius: 50% 50% 14px 14px / 60% 60% 14px 14px;
+      background: linear-gradient(180deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+      box-shadow: 0 8px 18px -6px rgba(0, 0, 0, .6), inset 0 0 0 2px rgba(255, 255, 255, .25);
+      text-align: center;
+    }
+
+    .lamp-strip {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 6px;
+    }
+
+    .bulb {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff3c4;
+      box-shadow: 0 0 4px 2px rgba(255, 243, 196, .6);
+      animation: bulb-blink 1.4s infinite ease-in-out;
+    }
+
+    .bulb:nth-child(odd) {
+      animation-delay: .35s;
+    }
+
+    .bulb:nth-child(3n) {
+      animation-delay: .7s;
+    }
+
+    @keyframes bulb-blink {
+
+      0%,
+      100% {
+        opacity: .35;
+        box-shadow: 0 0 2px 1px rgba(255, 243, 196, .3);
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 8px 3px rgba(255, 243, 196, .9);
+      }
+    }
+
+    .marquee {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      letter-spacing: .14em;
+      font-size: clamp(20px, 6vw, 27px);
+      color: var(--cabinet-red-dark);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+    }
+
+    .cabinet-body {
+      background: linear-gradient(180deg, #8f1119, #5c0b12);
+      border-radius: 12px;
+      padding: 14px;
+      border: 2px solid var(--gold-dark);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, .5);
+    }
+
+    /* ============ SCREEN / REELS ============ */
+    .screen-bezel {
+      padding: 10px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--chrome-light), var(--chrome-mid) 40%, var(--chrome-dark));
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(255, 255, 255, .5);
+    }
+
+    .screen {
+      position: relative;
+      background: #050506;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: inset 0 0 18px rgba(0, 0, 0, .9), inset 0 0 3px 2px #000;
+    }
+
+    .reels {
+      position: relative;
+      display: flex;
+      gap: 6px;
+    }
+
+    .reel-window {
+      flex: 1;
+      height: 76px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, #1c1c1f, #030304 85%);
+      border-radius: 3px;
+      box-shadow: inset 0 6px 10px -4px #000, inset 0 -6px 10px -4px #000;
+    }
+
+    .reel-strip {
+      will-change: transform;
+    }
+
+    .symbol {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .6));
+    }
+
+    .symbol.is-bar {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: #ffd35c;
+      letter-spacing: 1px;
+    }
+
+    .reel-window.blur .symbol {
+      filter: blur(3px) drop-shadow(0 2px 2px rgba(0, 0, 0, .6));
+    }
+
+    .payline {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 50%;
+      height: 2px;
+      transform: translateY(-1px);
+      background: linear-gradient(90deg, transparent, #ff3b30 12%, #ff3b30 88%, transparent);
+      box-shadow: 0 0 6px 1px rgba(255, 59, 48, .8);
+      pointer-events: none;
+    }
+
+    .payline::before,
+    .payline::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+
+    .payline::before {
+      left: -4px;
+      border-left: 6px solid #ff3b30;
+    }
+
+    .payline::after {
+      right: -4px;
+      border-right: 6px solid #ff3b30;
+    }
+
+    /* ============ LCD DISPLAYS ============ */
+    .display-panel {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr 1fr;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .lcd {
+      background: var(--lcd-bg);
+      border-radius: 4px;
+      padding: 5px 4px 6px;
+      text-align: center;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, .9), 0 0 0 1px rgba(217, 179, 84, .35);
+    }
+
+    .lcd-label {
+      display: block;
+      font-size: 8px;
+      letter-spacing: .12em;
+      color: var(--gold-light);
+      opacity: .8;
+      margin-bottom: 2px;
+    }
+
+    .lcd-value {
+      display: block;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      font-size: clamp(13px, 4vw, 17px);
+      color: var(--lcd-red);
+      text-shadow: 0 0 6px rgba(255, 59, 48, .85), 0 0 1px rgba(255, 59, 48, 1);
+      letter-spacing: .03em;
+    }
+
+    .lcd-value.flash {
+      animation: lcd-flash .5s steps(2) 4;
+    }
+
+    @keyframes lcd-flash {
+      50% {
+        opacity: .15;
+      }
+    }
+
+    .message-bar {
+      margin-top: 9px;
+      text-align: center;
+      font-size: 11.5px;
+      letter-spacing: .04em;
+      color: var(--gold-light);
+      min-height: 16px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    }
+
+    /* ============ CONTROLS ============ */
+    .controls {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) 1.3fr;
+      gap: 6px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 8px;
+      padding: 9px 2px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: .03em;
+      color: #fff;
+      cursor: pointer;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+      box-shadow: 0 3px 0 rgba(0, 0, 0, .35), 0 4px 6px rgba(0, 0, 0, .4);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 rgba(0, 0, 0, .35);
+    }
+
+    .btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(180deg, #e9c976, #a9791f);
+    }
+
+    .btn-blue {
+      background: linear-gradient(180deg, #4d8fd9, #1f4f8c);
+    }
+
+    .btn-green {
+      background: linear-gradient(180deg, #5fc27a, #237a3c);
+    }
+
+    .btn-yellow {
+      background: linear-gradient(180deg, #f4d94e, #b89400);
+      color: #3a2c00;
+      text-shadow: none;
+    }
+
+    .btn-yellow.active {
+      background: linear-gradient(180deg, #ff8a3d, #c9500a);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+    }
+
+    .btn-spin {
+      background: linear-gradient(180deg, #ff5b52, #a8121a);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .skirt {
+      margin-top: 14px;
+      height: 26px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, var(--cabinet-red-light), var(--cabinet-red-dark));
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, .5);
+    }
+
+    /* ============ LEVER ============ */
+    .lever-assembly {
+      position: absolute;
+      right: -15px;
+      top: 70px;
+      height: 150px;
+      width: 30px;
+    }
+
+    .lever-rail {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 7px;
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(180deg, var(--chrome-light), var(--chrome-mid) 45%, var(--chrome-dark));
+      box-shadow: 0 0 4px rgba(0, 0, 0, .6);
+    }
+
+    .lever {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform-origin: 50% 100%;
+      transform: translateX(-50%) rotate(0deg);
+      width: 7px;
+      height: 80%;
+      cursor: pointer;
+      transition: transform .12s cubic-bezier(.3, 1.6, .6, 1);
+    }
+
+    .lever.pulled {
+      transform: translateX(-50%) rotate(24deg);
+    }
+
+    .lever-rod {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--chrome-dark), var(--chrome-light) 45%, var(--chrome-dark));
+    }
+
+    .lever-knob {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ff6b62, #a8121a 70%, #6e0409);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, .6), inset 0 0 0 1px rgba(255, 255, 255, .25);
+    }
+
+    .mute-btn {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(217, 179, 84, .5);
+      background: rgba(0, 0, 0, .35);
+      color: var(--gold-light);
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============ PAYTABLE ============ */
+    .paytable {
+      width: 100%;
+      background: linear-gradient(180deg, #1b0507, #0b0203);
+      border: 1px solid rgba(217, 179, 84, .35);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+
+    .paytable h3 {
+      margin: 0 0 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: .1em;
+      color: var(--gold-light);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .paytable ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 18px;
+      font-size: 11.5px;
+    }
+
+    .paytable li {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      border-bottom: 1px dashed rgba(217, 179, 84, .18);
+      color: #e9d9b0;
+    }
+
+    .paytable li span:last-child {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    @media (max-width:380px) {
+      .lever-assembly {
+        display: none;
+      }
+
+      .machine {
+        padding: 20px 16px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stage">
+    <div class="machine" id="machine">
+      <div class="topper">
+        <div class="lamp-strip">
+          <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+          <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+          <span class="bulb"></span>
+        </div>
+        <div class="marquee">JACKPOT</div>
+      </div>
+
+      <div class="cabinet-body">
+        <div class="screen-bezel">
+          <div class="screen">
+            <div class="reels">
+              <div class="reel-window" id="win0">
+                <div class="reel-strip" id="strip0"></div>
+              </div>
+              <div class="reel-window" id="win1">
+                <div class="reel-strip" id="strip1"></div>
+              </div>
+              <div class="reel-window" id="win2">
+                <div class="reel-strip" id="strip2"></div>
+              </div>
+              <div class="payline"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="display-panel">
+          <div class="lcd">
+            <span class="lcd-label">CRÉDITOS</span>
+            <span class="lcd-value" id="creditsVal">10000</span>
+          </div>
+          <div class="lcd">
+            <span class="lcd-label">APUESTA</span>
+            <span class="lcd-value" id="betVal">100</span>
+          </div>
+          <div class="lcd">
+            <span class="lcd-label">PREMIO</span>
+            <span class="lcd-value" id="winVal">0</span>
+          </div>
+        </div>
+
+        <div class="message-bar" id="messageBar">Bienvenido — tira de la palanca o pulsa GIRAR</div>
+
+        <div class="controls">
+          <button class="btn btn-gold" id="btnCash" title="Reiniciar créditos a 10.000">CASH/<br>CREDIT</button>
+          <button class="btn btn-blue" id="btnBetOne">APUESTA</button>
+          <button class="btn btn-green" id="btnBetMax">MÁX</button>
+          <button class="btn btn-yellow" id="btnAuto">AUTO</button>
+          <button class="btn btn-spin" id="btnSpin">GIRAR</button>
+        </div>
+
+        <div class="skirt"></div>
+      </div>
+
+      <div class="lever-assembly">
+        <div class="lever-rail"></div>
+        <div class="lever" id="lever">
+          <div class="lever-rod"></div>
+          <div class="lever-knob"></div>
+        </div>
+      </div>
+
+      <button class="mute-btn" id="muteBtn" title="Silenciar sonido">🔊</button>
+    </div>
+
+    <div class="paytable">
+      <h3>Tabla de premios · 3 en línea</h3>
+      <ul>
+        <li><span>7️⃣ 7️⃣ 7️⃣</span><span>x50</span></li>
+        <li><span>💎 💎 💎</span><span>x25</span></li>
+        <li><span>⭐ ⭐ ⭐</span><span>x15</span></li>
+        <li><span>BAR BAR BAR</span><span>x10</span></li>
+        <li><span>🔔 🔔 🔔</span><span>x6</span></li>
+        <li><span>🍇 🍇 🍇</span><span>x4</span></li>
+        <li><span>🍒 🍒 🍒</span><span>x3</span></li>
+        <li><span>🍒 🍒 </span><span>x1</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ---------------- CONFIG ---------------- */
+      var SYMBOLS = [
+        {key: 'cherry', glyph: '🍒', mult: 3, weight: 8, bar: false},
+        {key: 'grape', glyph: '🍇', mult: 4, weight: 6, bar: false},
+        {key: 'bell', glyph: '🔔', mult: 6, weight: 5, bar: false},
+        {key: 'bar', glyph: 'BAR', mult: 10, weight: 4, bar: true},
+        {key: 'star', glyph: '⭐', mult: 15, weight: 3, bar: false},
+        {key: 'diamond', glyph: '💎', mult: 25, weight: 2, bar: false},
+        {key: 'seven', glyph: '7', mult: 50, weight: 1, bar: false}
+      ];
+      var N = SYMBOLS.length;
+      var SYM_H = 76;
+      var REPEATS = 6;
+      var STRIP_LEN = N * REPEATS;
+      var BET_PRESETS = [50, 100, 250, 500, 1000, 2500];
+
+      var WEIGHT_POOL = [];
+      SYMBOLS.forEach(function (s, idx) {
+        for (var i = 0; i < s.weight; i++) WEIGHT_POOL.push(idx);
+      });
+
+      /* ---------------- STATE ---------------- */
+      var state = {
+        credits: 10000,
+        bet: 100,
+        betIndex: 1,
+        spinning: false,
+        autoplay: false,
+        muted: false,
+        reelPos: [0, 0, 0]
+      };
+
+      /* ---------------- DOM ---------------- */
+      var els = {
+        credits: document.getElementById('creditsVal'),
+        bet: document.getElementById('betVal'),
+        win: document.getElementById('winVal'),
+        message: document.getElementById('messageBar'),
+        btnSpin: document.getElementById('btnSpin'),
+        btnBetOne: document.getElementById('btnBetOne'),
+        btnBetMax: document.getElementById('btnBetMax'),
+        btnAuto: document.getElementById('btnAuto'),
+        btnCash: document.getElementById('btnCash'),
+        muteBtn: document.getElementById('muteBtn'),
+        lever: document.getElementById('lever'),
+        strips: [document.getElementById('strip0'), document.getElementById('strip1'), document.getElementById('strip2')],
+        windows: [document.getElementById('win0'), document.getElementById('win1'), document.getElementById('win2')]
+      };
+
+      /* ---------------- BUILD REEL STRIPS ---------------- */
+      function buildStrip(stripEl) {
+        var frag = document.createDocumentFragment();
+        for (var r = 0; r < REPEATS; r++) {
+          SYMBOLS.forEach(function (s) {
+            var d = document.createElement('div');
+            d.className = 'symbol' + (s.bar ? ' is-bar' : '');
+            d.textContent = s.glyph;
+            frag.appendChild(d);
+          });
+        }
+        stripEl.appendChild(frag);
+      }
+      els.strips.forEach(buildStrip);
+
+      function setStripTransform(i, px) {
+        els.strips[i].style.transform = 'translateY(' + (-px) + 'px)';
+      }
+      // start each reel showing symbol 0, offset into the strip a bit so it never runs out visually
+      els.strips.forEach(function (_, i) {
+        state.reelPos[i] = N * SYM_H; // second lap, index 0
+        setStripTransform(i, state.reelPos[i]);
+      });
+
+      /* ---------------- AUDIO ---------------- */
+      var actx = null;
+      function ensureAudio() {
+        if (!actx) {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          actx = new AC();
+        }
+        if (actx.state === 'suspended') actx.resume();
+      }
+      function beep(freq, dur, type, gainVal, delay) {
+        if (state.muted) return;
+        ensureAudio();
+        type = type || 'sine';
+        gainVal = gainVal === undefined ? 0.15 : gainVal;
+        delay = delay || 0;
+        var t0 = actx.currentTime + delay;
+        var osc = actx.createOscillator();
+        var gain = actx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, t0);
+        gain.gain.setValueAtTime(0, t0);
+        gain.gain.linearRampToValueAtTime(gainVal, t0 + 0.012);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+        osc.connect(gain);
+        gain.connect(actx.destination);
+        osc.start(t0);
+        osc.stop(t0 + dur + 0.03);
+      }
+      function sTick() {beep(900 + Math.random() * 250, 0.025, 'square', 0.035);}
+      function sReelStop() {beep(140, 0.11, 'triangle', 0.18);}
+      function sLever() {beep(160, 0.07, 'square', 0.16); beep(90, 0.16, 'triangle', 0.14, 0.06);}
+      function sLose() {beep(110, 0.35, 'sawtooth', 0.10);}
+      function sWin(big) {
+        var notes = big ? [523.25, 659.25, 783.99, 1046.5, 1318.5] : [523.25, 659.25, 783.99];
+        notes.forEach(function (f, i) {
+          beep(f, big ? 0.32 : 0.22, 'sine', 0.14, i * 0.11);
+        });
+        if (big) {
+          for (var i = 0; i < 10; i++) {
+            beep(1400 + Math.random() * 900, 0.09, 'triangle', 0.05, 0.05 * i);
+          }
+        }
+      }
+
+      var tickTimer = null;
+      function startTicking() {
+        if (tickTimer) return;
+        tickTimer = setInterval(sTick, 70);
+      }
+      function stopTicking() {
+        clearInterval(tickTimer);
+        tickTimer = null;
+      }
+
+      els.muteBtn.addEventListener('click', function () {
+        state.muted = !state.muted;
+        els.muteBtn.textContent = state.muted ? '🔇' : '🔊';
+      });
+
+      /* ---------------- UI HELPERS ---------------- */
+      function fmt(n) {return n.toLocaleString('es-ES');}
+
+      function renderCredits() {els.credits.textContent = fmt(state.credits);}
+      function renderBet() {els.bet.textContent = fmt(state.bet);}
+      function renderWin(v) {els.win.textContent = fmt(v);}
+      function flash(el) {
+        el.classList.remove('flash');
+        void el.offsetWidth;
+        el.classList.add('flash');
+      }
+      function setMessage(msg) {els.message.textContent = msg;}
+
+      function updateControlsAvailability() {
+        var broke = state.credits <= 0;
+        var cannotAffordBet = state.bet > state.credits;
+        var disable = state.spinning || broke;
+        els.btnSpin.disabled = disable;
+        els.lever.style.pointerEvents = disable ? 'none' : 'auto';
+        els.lever.style.opacity = disable ? '.55' : '1';
+        els.btnBetOne.disabled = state.spinning;
+        els.btnBetMax.disabled = state.spinning;
+        els.btnAuto.disabled = state.spinning && !state.autoplay;
+        if (broke) {
+          setMessage('Sin créditos — pulsa CASH/CREDIT para reiniciar');
+          state.autoplay = false;
+          els.btnAuto.classList.remove('active');
+        } else if (cannotAffordBet && !state.spinning) {
+          state.bet = state.credits;
+          state.betIndex = -1;
+          renderBet();
+        }
+      }
+
+      /* ---------------- BET CONTROLS ---------------- */
+      els.btnBetOne.addEventListener('click', function () {
+        if (state.spinning) return;
+        state.betIndex = (state.betIndex + 1) % BET_PRESETS.length;
+        var val = BET_PRESETS[state.betIndex];
+        state.bet = Math.min(val, Math.max(state.credits, 0));
+        renderBet();
+        beep(700, 0.05, 'square', 0.08);
+        updateControlsAvailability();
+      });
+
+      els.btnBetMax.addEventListener('click', function () {
+        if (state.spinning) return;
+        var maxPreset = BET_PRESETS[BET_PRESETS.length - 1];
+        state.bet = Math.min(maxPreset, state.credits);
+        state.betIndex = BET_PRESETS.length - 1;
+        renderBet();
+        beep(700, 0.05, 'square', 0.1);
+        beep(900, 0.05, 'square', 0.08, 0.05);
+        updateControlsAvailability();
+      });
+
+      els.btnCash.addEventListener('click', function () {
+        state.credits = 10000;
+        state.bet = BET_PRESETS[1];
+        state.betIndex = 1;
+        state.autoplay = false;
+        els.btnAuto.classList.remove('active');
+        renderCredits();
+        renderBet();
+        renderWin(0);
+        setMessage('Créditos reiniciados a 10.000');
+        beep(660, 0.12, 'sine', 0.12);
+        beep(880, 0.14, 'sine', 0.12, 0.08);
+        updateControlsAvailability();
+      });
+
+      els.btnAuto.addEventListener('click', function () {
+        state.autoplay = !state.autoplay;
+        els.btnAuto.classList.toggle('active', state.autoplay);
+        if (state.autoplay) {
+          setMessage('Auto-juego activado');
+          if (!state.spinning) doSpin();
+        } else {
+          setMessage('Auto-juego detenido');
+        }
+      });
+
+      els.btnSpin.addEventListener('click', doSpin);
+      els.lever.addEventListener('click', function () {
+        if (state.spinning || state.credits <= 0) return;
+        sLever();
+        els.lever.classList.add('pulled');
+        setTimeout(function () {els.lever.classList.remove('pulled');}, 260);
+        doSpin();
+      });
+
+      /* ---------------- SPIN LOGIC ---------------- */
+      function pickSymbolIndex() {
+        return WEIGHT_POOL[Math.floor(Math.random() * WEIGHT_POOL.length)];
+      }
+
+      function animateReel(i, targetIndex, spinMs, doneCb) {
+        var stripEl = els.strips[i];
+        var winEl = els.windows[i];
+        var speed = 1400; // px per second during blur phase
+        var startTime = performance.now();
+        var pos = state.reelPos[i];
+        winEl.classList.add('blur');
+
+        function frame(now) {
+          var elapsed = now - startTime;
+          if (elapsed < spinMs) {
+            var dt = 16.6;
+            pos += speed * (dt / 1000);
+            setStripTransform(i, pos);
+            requestAnimationFrame(frame);
+          } else {
+            // settle: compute forward target position landing exactly on targetIndex
+            var currentK = Math.floor(pos / SYM_H);
+            var targetK = currentK - (currentK % N) + targetIndex;
+            if (targetK <= currentK) targetK += N;
+            targetK += N; // extra lap for a nicer glide
+            var targetPos = targetK * SYM_H;
+            var settleStart = performance.now();
+            var settleDur = 480;
+            var fromPos = pos;
+            winEl.classList.remove('blur');
+
+            function settleFrame(now2) {
+              var t = Math.min(1, (now2 - settleStart) / settleDur);
+              var eased = 1 - Math.pow(1 - t, 3);
+              var overshoot = t < 1 ? Math.sin(t * Math.PI) * 6 * (1 - t) : 0;
+              var cur = fromPos + (targetPos - fromPos) * eased + overshoot;
+              setStripTransform(i, cur);
+              if (t < 1) {
+                requestAnimationFrame(settleFrame);
+              } else {
+                // normalize position to keep numbers bounded
+                var normK = N * 2 + targetIndex;
+                state.reelPos[i] = normK * SYM_H;
+                setStripTransform(i, state.reelPos[i]);
+                sReelStop();
+                doneCb();
+              }
+            }
+            requestAnimationFrame(settleFrame);
+          }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      function evaluateWin(idxs) {
+        var symA = SYMBOLS[idxs[0]], symB = SYMBOLS[idxs[1]], symC = SYMBOLS[idxs[2]];
+        if (idxs[0] === idxs[1] && idxs[1] === idxs[2]) {
+          return {mult: symA.mult, kind: symA.key === 'seven' ? 'jackpot' : 'triple'};
+        }
+        var cherries = idxs.filter(function (i) {return SYMBOLS[i].key === 'cherry';}).length;
+        if (cherries >= 2) {
+          return {mult: 1, kind: 'pair'};
+        }
+        return {mult: 0, kind: 'none'};
+      }
+
+      function doSpin() {
+        if (state.spinning) return;
+        if (state.credits <= 0) {updateControlsAvailability(); return;}
+        if (state.bet > state.credits) state.bet = state.credits;
+        if (state.bet <= 0) {updateControlsAvailability(); return;}
+
+        state.spinning = true;
+        state.credits -= state.bet;
+        renderCredits();
+        renderWin(0);
+        setMessage('¡Girando!');
+        updateControlsAvailability();
+        startTicking();
+
+        var targets = [pickSymbolIndex(), pickSymbolIndex(), pickSymbolIndex()];
+        var durations = [900, 1300, 1700];
+        var finished = 0;
+
+        targets.forEach(function (t, i) {
+          animateReel(i, t, durations[i], function () {
+            finished++;
+            if (finished === 3) {
+              stopTicking();
+              resolveSpin(targets);
+            }
+          });
+        });
+      }
+
+      function resolveSpin(idxs) {
+        var result = evaluateWin(idxs);
+        var winAmount = result.mult * state.bet;
+
+        if (winAmount > 0) {
+          state.credits += winAmount;
+          renderCredits();
+          renderWin(winAmount);
+          flash(els.win);
+          if (result.kind === 'jackpot') {
+            setMessage('🎉 ¡BOTE! 7-7-7 · x' + result.mult + ' → +' + fmt(winAmount) + ' créditos');
+            sWin(true);
+          } else {
+            setMessage('¡Ganaste! x' + result.mult + ' → +' + fmt(winAmount) + ' créditos');
+            sWin(false);
+          }
+        } else {
+          renderWin(0);
+          setMessage('Sigue intentando — pulsa GIRAR o tira de la palanca');
+          sLose();
+        }
+
+        state.spinning = false;
+        updateControlsAvailability();
+
+        if (state.autoplay && state.credits >= state.bet && state.credits > 0) {
+          setTimeout(function () {
+            if (state.autoplay) doSpin();
+          }, 1400);
+        } else if (state.autoplay) {
+          state.autoplay = false;
+          els.btnAuto.classList.remove('active');
+        }
+      }
+
+      /* ---------------- INIT ---------------- */
+      renderCredits();
+      renderBet();
+      renderWin(0);
+      updateControlsAvailability();
+
+    })();
+  </script>
+</body>
+
+</html>
